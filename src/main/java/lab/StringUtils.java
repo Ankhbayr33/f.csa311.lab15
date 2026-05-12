@@ -1,9 +1,7 @@
 package lab;
 
 /**
- * String-тэй ажиллах туслах утга.
- *
- * Lab15 — Даалгавар 2-т `reverse` функц өөрөө нэмэх болно.
+ * Helper methods for working with strings.
  */
 public final class StringUtils {
 
@@ -12,14 +10,14 @@ public final class StringUtils {
     }
 
     /**
-     * Хоосон болон null-ийг шалгах.
+     * Checks whether a string is null, empty, or only whitespace.
      */
     public static boolean isBlank(String s) {
         return s == null || s.trim().isEmpty();
     }
 
     /**
-     * Үгийн эхний үсгийг том болгох (бусад нь хэвээр).
+     * Capitalizes the first character and leaves the rest unchanged.
      */
     public static String capitalize(String s) {
         if (isBlank(s)) {
@@ -28,5 +26,13 @@ public final class StringUtils {
         return Character.toUpperCase(s.charAt(0)) + s.substring(1);
     }
 
-    // TODO (Даалгавар 2): public static String reverse(String s) { ... }
+    /**
+     * Reverses the given string while preserving null input.
+     */
+    public static String reverse(String s) {
+        if (s == null) {
+            return null;
+        }
+        return new StringBuilder(s).reverse().toString();
+    }
 }
